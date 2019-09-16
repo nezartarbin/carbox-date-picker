@@ -1,0 +1,20 @@
+.day-grid, .week-header, .month-header {
+    width: 280px;
+}
+
+.month-header {
+    text-align: center;
+}
+
+.flex {
+    display: flex;
+}
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+.day-cell,.weekday {
+    width: 40px;
+    height: 24px;
+}
