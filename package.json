@@ -1,0 +1,25 @@
+{
+  "name": "carbox-date-picker",
+  "version": "0.1.0",
+  "description": "a tiny and fast zero-dependency date-picker built with vanilla Javascript and CSS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nezartarbin/carbox-date-picker.git"
+  },
+  "keywords": [
+    "date",
+    "picker",
+    "date-picker",
+    "calendar"
+  ],
+  "author": "Nezar Tarbin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nezartarbin/carbox-date-picker/issues"
+  },
+  "homepage": "https://github.com/nezartarbin/carbox-date-picker#readme"
+}
