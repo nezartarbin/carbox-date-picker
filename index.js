@@ -1,8 +1,8 @@
-function generate(main) {
+function generate(main, selected_time) {
     const [container, month_header, week_header, day_grid] = setup_skeleton(main);
-    setup_month_header(month_header, day_grid);
+    setup_month_header(month_header, day_grid, selected_time);
     setup_week_header(week_header);
-    setup_day_grid(day_grid);
+    setup_day_grid(day_grid, selected_time);
     return container;
 }
 
@@ -35,7 +35,7 @@ function setup_skeleton(parent) {
     return [container, month_header, week_header, day_grid];
 }
 
-function setup_month_header(month_header, day_grid) {
+function setup_month_header(month_header, day_grid, selected_time) {
     const month_span = document.createElement("span");
     month_span.textContent = names.months[selected_time.getMonth()];
     const buttons = {
@@ -44,7 +44,7 @@ function setup_month_header(month_header, day_grid) {
     };
 
     for (let i=0,keys=["back","front"], text=["<", ">"]; i<2; i++) {
-        add_change_month_event_listener(month_span, day_grid, buttons[keys[i]], i);
+        add_change_month_event_listener(selected_time, month_span, day_grid, buttons[keys[i]], i);
         buttons[keys[i]].textContent = text[i];
         month_header.appendChild(buttons[keys[i]]);
     }
@@ -62,7 +62,7 @@ function setup_week_header(week_header) {
     }
 }
 
-function setup_day_grid(day_grid) {
+function setup_day_grid(day_grid, selected_time) {
     while (day_grid.firstChild) {
         day_grid.removeChild(day_grid.firstChild);
     }
@@ -84,29 +84,29 @@ function setup_day_grid(day_grid) {
     }
 }
 
-function add_change_month_event_listener(month_span, day_grid, button, i) {
+function add_change_month_event_listener(selected_time, month_span, day_grid, button, i) {
     const offset = [-1,+1];
     button.addEventListener("click", e => {
         selected_time = new Date(selected_time.getFullYear(), selected_time.getMonth()+offset[i]);
-        setup_day_grid(day_grid);
+        setup_day_grid(day_grid, selected_time);
         month_span.textContent = names.months[selected_time.getMonth()];
     })
 }
 
 // ** EXECUTED CODE: **
 
-const main = document.querySelector("main");
-const input = document.querySelector("input[type=text]");
+const inputs = document.getElementsByClassName("carbox-picker");
 const current_time = new Date();
-let selected_time = current_time;
-let container = generate(main);
 
-input.addEventListener("click", e => e.stopPropagation());
-
-input.addEventListener("focus", e => {
-    container.style.display = "";
-})
-
-window.addEventListener("click", e => {
-    container.style.display = "none";
-})
+for (let i = 0, len = inputs.length; i < len; i++) {
+    let selected_time = new Date(current_time.getTime());
+    let container = generate(inputs[i].parentNode, selected_time);
+    inputs[i].addEventListener("click", e => e.stopPropagation());
+    inputs[i].addEventListener("focus", e => {
+        container.style.display = "";
+    })
+    
+    window.addEventListener("click", e => {
+        container.style.display = "none";
+    })
+}
