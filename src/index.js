@@ -1,16 +1,12 @@
+import { months, weekdays_abbr } from './names';
+import './style.css';
+
 function generate(main, selected_time) {
     const [container, month_header, week_header, day_grid] = setup_skeleton(main);
     setup_month_header(month_header, day_grid, selected_time);
     setup_week_header(week_header);
     setup_day_grid(day_grid, selected_time);
     return container;
-}
-
-const names = {
-    weekdays: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-    weekdays_abbr: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-    months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-    months_abbr: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 }
 
 function setup_skeleton(parent) {
@@ -37,7 +33,7 @@ function setup_skeleton(parent) {
 
 function setup_month_header(month_header, day_grid, selected_time) {
     const month_span = document.createElement("span");
-    month_span.textContent = names.months[selected_time.getMonth()];
+    month_span.textContent = months[selected_time.getMonth()];
     const buttons = {
         back: document.createElement("button"),
         front: document.createElement("button")
@@ -56,7 +52,7 @@ function setup_month_header(month_header, day_grid, selected_time) {
 function setup_week_header(week_header) {
     for (let i=0;i<7;i++) {
         const weekday = document.createElement("div");
-        weekday.textContent = names.weekdays_abbr[i];
+        weekday.textContent = weekdays_abbr[i];
         weekday.className = "weekday";
         week_header.appendChild(weekday);
     }
@@ -89,7 +85,7 @@ function add_change_month_event_listener(selected_time, month_span, day_grid, bu
     button.addEventListener("click", e => {
         selected_time = new Date(selected_time.getFullYear(), selected_time.getMonth()+offset[i]);
         setup_day_grid(day_grid, selected_time);
-        month_span.textContent = names.months[selected_time.getMonth()];
+        month_span.textContent = months[selected_time.getMonth()];
     })
 }
 
