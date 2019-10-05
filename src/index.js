@@ -15,10 +15,10 @@ function setup_skeleton(parent) {
     const week_header = document.createElement("div");
     const day_grid = document.createElement("div");
 
-    month_header.className = "month-header";
-    day_grid.className = "day-grid flex wrap";
-    week_header.className = "week-header flex wrap";
-    container.style.display = "none";
+    month_header.className = "width-280px center-align";
+    day_grid.className = "width-280px flex wrap";
+    week_header.className = "width-280px flex wrap";
+    container.className = "width-280px display-none";
 
     container.addEventListener("click", e => e.stopPropagation())
 
@@ -53,7 +53,7 @@ function setup_week_header(week_header) {
     for (let i=0;i<7;i++) {
         const weekday = document.createElement("div");
         weekday.textContent = weekdays_abbr[i];
-        weekday.className = "weekday";
+        weekday.className = "cell-dimensions";
         week_header.appendChild(weekday);
     }
 }
@@ -68,14 +68,14 @@ function setup_day_grid(day_grid, selected_time) {
 
     for (let i=0;i<weekday_of_1st_of_month;i++) {
         const day_cell = document.createElement("div");
-        day_cell.className = "day_cell";
+        day_cell.className = "cell-dimensions";
         day_grid.appendChild(day_cell)
     }
 
     for (let i=0; i<total_days_in_month; i++) {
         const day_cell = document.createElement("div");
         day_cell.textContent = new Date(selected_time.getFullYear(), selected_time.getMonth(), 1+i).getDate();
-        day_cell.className = "day-cell";
+        day_cell.className = "cell-dimensions";
         day_grid.appendChild(day_cell);
     }
 }
@@ -99,7 +99,7 @@ for (let i = 0, len = inputs.length; i < len; i++) {
     let container = generate(inputs[i].parentNode, selected_time);
     inputs[i].addEventListener("click", e => e.stopPropagation());
     inputs[i].addEventListener("focus", e => {
-        container.style.display = "";
+        container.style.display = "block";
     })
     
     window.addEventListener("click", e => {
