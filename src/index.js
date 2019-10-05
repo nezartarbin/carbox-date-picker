@@ -1,11 +1,11 @@
 import { months, weekdays_abbr } from './names';
 import './style.css';
 
-function generate(main, selected_time) {
-    const [container, month_header, week_header, day_grid] = setup_skeleton(main);
-    setup_month_header(month_header, day_grid, selected_time);
+function generate(input, selected_time) {
+    const [container, month_header, week_header, day_grid] = setup_skeleton(input.parentNode);
+    setup_month_header(month_header, day_grid, selected_time, input);
     setup_week_header(week_header);
-    setup_day_grid(day_grid, selected_time);
+    setup_day_grid(day_grid, selected_time, input);
     return container;
 }
 
@@ -31,7 +31,7 @@ function setup_skeleton(parent) {
     return [container, month_header, week_header, day_grid];
 }
 
-function setup_month_header(month_header, day_grid, selected_time) {
+function setup_month_header(month_header, day_grid, selected_time, input) {
     const month_span = document.createElement("span");
     month_span.textContent = months[selected_time.getMonth()];
     const buttons = {
@@ -40,7 +40,7 @@ function setup_month_header(month_header, day_grid, selected_time) {
     };
 
     for (let i=0,keys=["back","front"], text=["<", ">"]; i<2; i++) {
-        add_change_month_event_listener(selected_time, month_span, day_grid, buttons[keys[i]], i);
+        add_change_month_event_listener(selected_time, month_span, day_grid, input, buttons[keys[i]], i);
         buttons[keys[i]].textContent = text[i];
         month_header.appendChild(buttons[keys[i]]);
     }
@@ -58,7 +58,7 @@ function setup_week_header(week_header) {
     }
 }
 
-function setup_day_grid(day_grid, selected_time) {
+function setup_day_grid(day_grid, selected_time, input) {
     while (day_grid.firstChild) {
         day_grid.removeChild(day_grid.firstChild);
     }
@@ -66,25 +66,28 @@ function setup_day_grid(day_grid, selected_time) {
     let weekday_of_1st_of_month = new Date(selected_time.getFullYear(), selected_time.getMonth(),1).getDay();
     let total_days_in_month = new Date(selected_time.getFullYear(), selected_time.getMonth() + 1, 0).getDate();
 
-    for (let i=0;i<weekday_of_1st_of_month;i++) {
+    for (let i=0;i<weekday_of_1st_of_month;i++) { //empty cells
         const day_cell = document.createElement("div");
         day_cell.className = "cell-dimensions";
         day_grid.appendChild(day_cell)
     }
 
-    for (let i=0; i<total_days_in_month; i++) {
+    for (let i=0; i<total_days_in_month; i++) { //non-empty cells
         const day_cell = document.createElement("div");
         day_cell.textContent = new Date(selected_time.getFullYear(), selected_time.getMonth(), 1+i).getDate();
         day_cell.className = "cell-dimensions";
+        day_cell.addEventListener("click", (e) => {
+            input.value = new Date(selected_time.getFullYear(), selected_time.getMonth(), 1+i);
+        })
         day_grid.appendChild(day_cell);
     }
 }
 
-function add_change_month_event_listener(selected_time, month_span, day_grid, button, i) {
+function add_change_month_event_listener(selected_time, month_span, day_grid, input, button, i) {
     const offset = [-1,+1];
     button.addEventListener("click", e => {
         selected_time = new Date(selected_time.getFullYear(), selected_time.getMonth()+offset[i]);
-        setup_day_grid(day_grid, selected_time);
+        setup_day_grid(day_grid, selected_time, input);
         month_span.textContent = months[selected_time.getMonth()];
     })
 }
@@ -96,7 +99,7 @@ const current_time = new Date();
 
 for (let i = 0, len = inputs.length; i < len; i++) {
     let selected_time = new Date(current_time.getTime());
-    let container = generate(inputs[i].parentNode, selected_time);
+    let container = generate(inputs[i], selected_time);
     inputs[i].addEventListener("click", e => e.stopPropagation());
     inputs[i].addEventListener("focus", e => {
         container.style.display = "block";
