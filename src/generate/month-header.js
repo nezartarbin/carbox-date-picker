@@ -1,33 +1,23 @@
 import setup_day_grid from './day-grid';
 import { months } from './names';
 
+function create_change_month_button(selected_time, text, offset, month_span, day_grid, input) {
+    const button = document.createElement("button");
+    button.addEventListener("click", () => {
+        selected_time.set_time(new Date(selected_time.get_time().getFullYear(), selected_time.get_time().getMonth()+offset));
+        setup_day_grid(day_grid, selected_time, input);
+        month_span.textContent = months[selected_time.get_time().getMonth()];
+    })
+    button.textContent = text;
+    return button;
+}
+
 export default function setup_month_header(month_header, day_grid, selected_time, input) {
     const month_span = document.createElement("span");
-    month_span.textContent = months[selected_time.getMonth()];
-    const buttons = {
-        back: document.createElement("button"),
-        front: document.createElement("button")
-    };
-
-    for (
-            let
-                i=0,
-                keys=["back","front"],
-                text=["<", ">"],
-                offset=[-1,+1];
-            i<2;
-            i++
-        ) {
-        buttons[keys[i]].addEventListener("click", e => {
-            console.log(selected_time);
-            selected_time = new Date(selected_time.getFullYear(), selected_time.getMonth()+offset[i]);
-            setup_day_grid(day_grid, selected_time, input);
-            month_span.textContent = months[selected_time.getMonth()];
-        })
-        buttons[keys[i]].textContent = text[i];
-        month_header.appendChild(buttons[keys[i]]);
-    }
+    month_span.textContent = months[selected_time.get_time().getMonth()];
+    const backwardButton = create_change_month_button(selected_time, "<", -1, month_span, day_grid, input);
+    const forwardButton = create_change_month_button(selected_time, ">", +1, month_span, day_grid, input);
     
-    month_header.insertBefore(month_span, buttons.front)
+    month_header.append(backwardButton, month_span, forwardButton);
     return selected_time;
 }
