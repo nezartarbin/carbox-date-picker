@@ -1,4 +1,4 @@
-import { weekdays_abbr } from './names';
+import { weekdays_abbr } from '../names';
 
 export default function setup_week_header(week_header) {
     for (let i=0;i<7;i++) {

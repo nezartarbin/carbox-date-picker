@@ -1,5 +1,5 @@
 import setup_day_grid from './day-grid';
-import { months } from './names';
+import { months } from '../names';
 
 function create_change_month_button(selected_time, text, offset, month_span, day_grid, input) {
     const button = document.createElement("button");
