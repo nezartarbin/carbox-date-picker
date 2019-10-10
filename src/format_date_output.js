@@ -1,0 +1,1 @@
+export default (dateObj) => `${dateObj.getMonth()+1}/${dateObj.getDate()}/${dateObj.getFullYear()}`;
