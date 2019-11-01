@@ -1,4 +1,4 @@
-import format_date_output from '../format_date_output';
+import format_date_output from '../utils/format_date_output';
 
 export default function setup_day_grid(day_grid, selected_time, input) {
     while (day_grid.firstChild) {

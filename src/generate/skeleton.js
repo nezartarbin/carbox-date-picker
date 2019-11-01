@@ -7,7 +7,7 @@ export default function setup_skeleton(parent) {
     month_header.className = "width-280px center-align";
     day_grid.className = "width-280px flex wrap";
     week_header.className = "width-280px flex wrap";
-    container.className = "width-280px display-none";
+    container.className = "width-280px display-none calibri";
 
     container.addEventListener("click", e => e.stopPropagation())
 

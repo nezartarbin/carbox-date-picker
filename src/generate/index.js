@@ -2,7 +2,7 @@ import setup_skeleton from './skeleton';
 import setup_month_header from './month-header';
 import setup_week_header from './week-header';
 import setup_day_grid from './day-grid';
-import Selected_time from '../Selected_time';
+import Selected_time from '../utils/Selected_time';
 
 export default function generate(input) {
     const selected_time = new Selected_time();

@@ -1,8 +1,6 @@
 import './style.css';
 import generate from './generate';
 
-// ** EXECUTED CODE: **
-
 const inputs = document.getElementsByClassName("carbox-picker");
 
 for (let i = 0, len = inputs.length; i < len; i++) {
