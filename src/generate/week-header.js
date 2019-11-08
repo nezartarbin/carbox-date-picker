@@ -4,7 +4,11 @@ export default function setup_week_header(week_header) {
     for (let i=0;i<7;i++) {
         const weekday = document.createElement("div");
         weekday.textContent = weekdays_abbr[i];
-        weekday.className = "cell-dimensions";
+        Object.assign(weekday.style, {
+            textAlign: "center",
+            width: "40px",
+            height: "34px",
+        });
         week_header.appendChild(weekday);
     }
 }

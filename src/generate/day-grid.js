@@ -5,12 +5,17 @@ export default function setup_day_grid(day_grid, selected_time, input) {
         day_grid.removeChild(day_grid.firstChild);
     }
 
+    let clicked_cell = null;
+
     let weekday_of_1st_of_month = new Date(selected_time.get_time().getFullYear(), selected_time.get_time().getMonth(),1).getDay();
     let total_days_in_month = new Date(selected_time.get_time().getFullYear(), selected_time.get_time().getMonth() + 1, 0).getDate();
 
     for (let i=0;i<weekday_of_1st_of_month; i++) { //empty cells
         const day_cell = document.createElement("div");
-        day_cell.className = "cell-dimensions";
+        Object.assign(day_cell.style, {
+            width: "40px",
+            height: "34px",
+        });
         day_grid.appendChild(day_cell)
     }
 
@@ -18,10 +23,31 @@ export default function setup_day_grid(day_grid, selected_time, input) {
         const day_cell = document.createElement("div");
         day_cell.date = new Date(selected_time.get_time().getFullYear(), selected_time.get_time().getMonth(), 1+i);
         day_cell.textContent = day_cell.date.getDate();
-        day_cell.className = "cell-dimensions";
+        Object.assign(day_cell.style, {
+            textAlign: "center",
+            width: "40px",
+            height: "34px",
+            lineHeight: "34px",
+        });
+        day_cell.addEventListener("mouseenter", () => {
+            if (clicked_cell !== day_cell) day_cell.style.backgroundColor = "#2ba7ff";
+        });
+        day_cell.addEventListener("mouseleave", () => {
+            if (clicked_cell !== day_cell) day_cell.style.backgroundColor = "";
+        });
         day_cell.addEventListener("click", (e) => {
+            if (clicked_cell !== null) 
+                Object.assign(clicked_cell.style, {
+                    backgroundColor: "",
+                    color: "",
+                });
+            Object.assign(day_cell.style, {
+                backgroundColor: "#1a62d6",
+                color: "#FFF",
+            });
+            clicked_cell = day_cell;
             input.value = format_date_output(e.target.date);
-        })
+        });
         day_grid.appendChild(day_cell);
     }
 }

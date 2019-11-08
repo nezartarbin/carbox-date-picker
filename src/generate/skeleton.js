@@ -4,10 +4,27 @@ export default function setup_skeleton(parent) {
     const week_header = document.createElement("div");
     const day_grid = document.createElement("div");
 
-    month_header.className = "width-280px center-align";
-    day_grid.className = "width-280px flex wrap";
-    week_header.className = "width-280px flex wrap";
-    container.className = "width-280px display-none calibri";
+    Object.assign(month_header.style, {
+        width: "280px",
+        textAlign: "center",
+    })
+    Object.assign(day_grid.style, {
+        width: "280px",
+        display: "flex",
+        flexWrap: "wrap",
+    })
+    Object.assign(week_header.style, {
+        width: "280px",
+        display: "flex",
+        flexWrap: "wrap",
+    })
+    Object.assign(container.style, {
+        width: "280px",
+        display: "none",
+        padding: "15px 10px",
+        fontFamily: `Calibri, "Trebuchet MS", Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif`,
+        boxShadow: "1px 3px 10px rgba(0, 0, 0, 0.5)",
+    })
 
     container.addEventListener("click", e => e.stopPropagation())
 

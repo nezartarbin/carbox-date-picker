@@ -1,4 +1,3 @@
-import './style.css';
 import generate from './generate';
 
 const inputs = document.getElementsByClassName("carbox-picker");
