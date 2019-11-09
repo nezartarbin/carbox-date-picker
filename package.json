@@ -4,7 +4,6 @@
   "description": "a tiny and fast zero-dependency date-picker built with vanilla Javascript and CSS",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack"
   },
   "repository": {
