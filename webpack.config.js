@@ -7,12 +7,4 @@ module.exports = {
         filename: 'index.js',
         path: path.join(__dirname, 'lib'),
     },
-    module: {
-        rules: [
-            {
-                test:/\.css$/,
-                use:['style-loader','css-loader'],
-            },
-        ],
-    },
 };
