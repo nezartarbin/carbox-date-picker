@@ -24,6 +24,7 @@ export default function setup_skeleton(parent) {
         padding: "15px 10px",
         fontFamily: `Calibri, "Trebuchet MS", Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif`,
         boxShadow: "1px 3px 10px rgba(0, 0, 0, 0.5)",
+        position: "absolute",
     })
 
     container.addEventListener("click", e => e.stopPropagation())
