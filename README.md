@@ -29,9 +29,9 @@ Alternatively, you may download and use the bundled script directly in your html
 ```
 
 ### Usage
-To use carbox date picker, assign the class `carbox-picker` to an input field.
+To use carbox date picker, simply use the `<carbox-picker>` tag in your HTML.
 ```
-<input type="text" class="carbox-picker" />
+<carbox-picker></carbox-picker>
 ```
 
 ## Future Work
