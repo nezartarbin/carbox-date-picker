@@ -7,8 +7,8 @@ function create_change_month_button(selected_time, text, offset, month_year_text
         backgroundColor: "transparent",
         border: "none",
         fontSize: "20px",
-        fontWeight: "bold",
     });
+    (text === ">") ? button.style.marginLeft = "15%" : button.style.marginRight = "15%";
     button.addEventListener("click", () => {
         selected_time.set_time(new Date(selected_time.get_time().getFullYear(), selected_time.get_time().getMonth()+offset));
         setup_day_grid(day_grid, selected_time, input);
