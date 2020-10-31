@@ -7,6 +7,7 @@ export default function setup_skeleton(parent) {
     Object.assign(month_header.style, {
         width: "280px",
         textAlign: "center",
+        marginBottom: "15px",
     })
     Object.assign(day_grid.style, {
         width: "280px",
@@ -21,9 +22,9 @@ export default function setup_skeleton(parent) {
     Object.assign(container.style, {
         width: "280px",
         display: "none",
-        padding: "15px 10px",
+        padding: "20px",
         fontFamily: `Calibri, "Trebuchet MS", Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif`,
-        boxShadow: "1px 3px 10px rgba(0, 0, 0, 0.5)",
+        boxShadow: "1px 3px 10px rgba(0, 0, 0, 0.2)",
         position: "absolute",
     })
 
