@@ -8,6 +8,8 @@ export default function setup_skeleton(parent) {
         width: "280px",
         textAlign: "center",
         marginBottom: "15px",
+        display: "flex",
+        justifyContent: "space-between",
     })
     Object.assign(day_grid.style, {
         width: "280px",

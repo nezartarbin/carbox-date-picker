@@ -8,7 +8,6 @@ function create_change_month_button(selected_time, text, offset, month_year_text
         border: "none",
         fontSize: "20px",
     });
-    (text === ">") ? button.style.marginLeft = "15%" : button.style.marginRight = "15%";
     button.addEventListener("click", () => {
         selected_time.set_time(new Date(selected_time.get_time().getFullYear(), selected_time.get_time().getMonth()+offset));
         setup_day_grid(day_grid, selected_time, input);
@@ -21,7 +20,7 @@ function create_change_month_button(selected_time, text, offset, month_year_text
 export default function setup_month_header(month_header, day_grid, selected_time, input) {
     const month_year_text = document.createElement("div");
     Object.assign(month_year_text.style, {
-        width: "120px",
+        width: "150px",
         display: "inline-block",
         fontWeight: "bold",
         marginBottom: "5px",
