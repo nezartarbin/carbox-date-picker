@@ -7,9 +7,10 @@ export default function setup_skeleton(parent) {
     Object.assign(month_header.style, {
         width: "280px",
         textAlign: "center",
-        marginBottom: "15px",
+        marginBottom: "10px",
         display: "flex",
         justifyContent: "space-between",
+        height: "30px",
     })
     Object.assign(day_grid.style, {
         width: "280px",

@@ -8,7 +8,8 @@ export default function setup_week_header(week_header) {
             textAlign: "center",
             width: "40px",
             height: "40px",
-            color: "#696969"
+            color: "#696969",
+            lineHeight: "40px",
         });
         week_header.appendChild(weekday);
     }
