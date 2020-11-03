@@ -26,8 +26,9 @@ export default function setup_day_grid(day_grid, selected_time, input) {
         Object.assign(day_cell.style, {
             textAlign: "center",
             width: "40px",
-            height: "34px",
-            lineHeight: "34px",
+            height: "40px",
+            lineHeight: "40px",
+            borderRadius: "50%",
         });
         day_cell.addEventListener("mouseenter", () => {
             if (clicked_cell !== day_cell) day_cell.style.backgroundColor = "#2ba7ff";
@@ -42,7 +43,7 @@ export default function setup_day_grid(day_grid, selected_time, input) {
                     color: "",
                 });
             Object.assign(day_cell.style, {
-                backgroundColor: "#1a62d6",
+                backgroundColor: "#005aeb",
                 color: "#FFF",
             });
             clicked_cell = day_cell;
