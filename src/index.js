@@ -3,17 +3,22 @@ import generate from './generate';
 const inputs = document.getElementsByClassName("carbox-picker");
 
 class Carbox_picker extends HTMLElement {
+    constructor() {
+        super();
+        this.input = document.createElement("input");
+        this.input.type = "text";
+        this.appendChild(this.input);
+        this.container = generate(this.input);
+    }
+
     connectedCallback() {
-        const input = document.createElement("input");
-        input.type = "text";
-        this.appendChild(input);
-        const container = generate(input)
-        input.addEventListener("click", e => e.stopPropagation());
-        input.addEventListener("focus", () => {
-            container.style.display = "block";
+        console.log(this);
+        this.input.addEventListener("click", e => e.stopPropagation());
+        this.input.addEventListener("focus", () => {
+            this.container.style.display = "block";
         })
         window.addEventListener("click", e => {
-            container.style.display = "none";
+            this.container.style.display = "none";
         })
     }
 }
