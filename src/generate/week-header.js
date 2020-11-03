@@ -7,7 +7,9 @@ export default function setup_week_header(week_header) {
         Object.assign(weekday.style, {
             textAlign: "center",
             width: "40px",
-            height: "34px",
+            height: "40px",
+            color: "#696969",
+            lineHeight: "40px",
         });
         week_header.appendChild(weekday);
     }

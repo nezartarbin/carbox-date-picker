@@ -1,13 +1,13 @@
 # Carbox Date-Picker
-A tiny zero-dependency and framework-agnostic date-picker web component made with vanilla javascript and CSS.
+A tiny zero-dependency and framework-agnostic date picker that is incredibly easy to use!
 ![screenshot](screenshot.png)
 
 ## Features
 
 - carbox-picker is a **Web Component**, which means you can simply import the JS bundle and use the tag `<carbox-picker></carbox-picker>` and you're all set!
-- **Zero Dependencies**
-- **Extremely Lightweight**: The webpack bundle is only 4kb even before zipping
-- **Frontend Framework Agnostic**
+- **Zero Dependencies**: This was completely written with vanilla JS without any frameworks or dependencies!
+- **Extremely Lightweight**: The webpack bundle is only 4kb even before zipping.
+- **Frontend Framework Agnostic**: This is not made for a specific UI framework. In fact, it can be used without a framework at all!
 - Can be interfaced just like a regular `<input>` which allows easy integration with forms, refs, etc.
 
 ## Getting Started
@@ -37,4 +37,3 @@ To use carbox date picker, simply use the `<carbox-picker>` tag in your HTML.
 ## Future Work
 - Configurability of styling
 - Configurability of the date-picker's output
-- Improve default styling
