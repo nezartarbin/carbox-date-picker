@@ -12,7 +12,6 @@ class Carbox_picker extends HTMLElement {
     }
 
     connectedCallback() {
-        console.log(this);
         this.input.addEventListener("click", e => e.stopPropagation());
         this.input.addEventListener("focus", () => {
             this.container.style.display = "block";
