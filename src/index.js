@@ -1,7 +1,5 @@
 import generate from './generate';
 
-const inputs = document.getElementsByClassName("carbox-picker");
-
 class Carbox_picker extends HTMLElement {
     constructor() {
         super();
