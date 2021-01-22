@@ -1,7 +1,3 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
- 
 import format_date_output from '../utils/format_date_output';
 
 export default function setup_day_grid(day_grid, selected_time, input) {
