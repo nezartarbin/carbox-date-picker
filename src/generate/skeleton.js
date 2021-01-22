@@ -38,7 +38,6 @@ export default function setup_skeleton(parent) {
     container.appendChild(month_header);
     container.appendChild(week_header);
     container.appendChild(day_grid);
-    parent.parentNode.insertBefore(container, parent.nextSibling);
     parent.appendChild(container);
 
     return [container, month_header, week_header, day_grid];

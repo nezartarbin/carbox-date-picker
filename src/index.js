@@ -5,12 +5,12 @@ class Carbox_picker extends HTMLElement {
         super();
         this.input = document.createElement("input");
         this.input.type = "text";
-        this.appendChild(this.input);
-        this.container = generate(this.input);
     }
 
     connectedCallback() {
         this.input.addEventListener("click", e => e.stopPropagation());
+        this.appendChild(this.input);
+        this.container = generate(this.input);
         this.input.addEventListener("focus", () => {
             this.container.style.display = "block";
         })
