@@ -61,6 +61,11 @@ To use carbox date picker, simply use the `<carbox-picker>` tag in your HTML. No
 <carbox-picker></carbox-picker>
 ```
 
+## Status
+carbox-picker is in beta phase. In other words, while it is very usable, it was tested in limited scenarios, so use in critical production environments is not advised.
+
+stay tuned as more users test carbox-picker and more features get added!
+
 ## Contribution
 Contributions are very welcome and encouraged!
 
