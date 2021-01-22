@@ -1,5 +1,6 @@
 # Carbox Date-Picker
 A tiny zero-dependency and framework-agnostic date picker that is incredibly easy to use! Compatible with any web UI framework, vanilla JS projects, and even HTML-only projects!
+
 ![screenshot](screenshot.png)
 
 ## Features
