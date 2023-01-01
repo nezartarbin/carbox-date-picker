@@ -24,6 +24,6 @@
   "homepage": "https://gitlab.com/oxamide/carbox-date-picker",
   "devDependencies": {
     "webpack": "^5.15.0",
-    "webpack-cli": "^3.3.12"
+    "webpack-cli": "^5.0.1"
   }
 }
